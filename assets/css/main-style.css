@@ -46,13 +46,11 @@
     margin: 0;
 }
 
-.page {
-    background-color: var(--white-color);
-}
-
-body {
+html {
     color: var(--stone-600-color);
-    font-family: Outfit;
+    font-family: Outfit, sans-serif;
+    background-color: var(--stone-100-color);
+    line-height: 2;
 }
 
 
@@ -62,73 +60,67 @@ p {
     line-height: 1.5;
 }
 
-.content {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    width: 50%;
+    margin: 100px auto;
+    padding: 20px 20px 0 20px;
+    background-color: var(--white-color);
+    overflow: hidden;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.container img {
+    width: 100%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 /* Small */
+
 @media (max-width: 768px) {
-    .content {
-        width: 375px;
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+    }
+
+    .container img {
+        border-radius: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+    }
+
+    .container .box {
+        padding: 0 20px;
     }
 }
 
-/* Large */
-@media (min-width: 769px) {
-    .content {
-        width: 1440px;
-    }
-}
-
-.content .image {
-    background-image: url("../images/image-omelette.jpeg");
-    background-size: cover;
-    /*height: calc(100vh - 64px);*/
-}
-
-/* Mobile styles */
-@media (max-width: 375px) {
-    .content .image {
-        height: 200px;
-        margin: -20px -20px 20px -20px;
-        border-radius: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        -ms-border-radius: 0px;
-        -o-border-radius: 0px;
-    }
-}
-
-/* Desktop styles */
-@media (min-width: 376px) {
-    .content .image {
-        height: 800px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-radius: 20px;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        -ms-border-radius: 20px;
-        -o-border-radius: 20px;
-    }
-}
-
-.content h1 {
+.container h1 {
     font-family: "Young Serif";
     color: var(--stone-900-color);
+    margin: 20px 0;
 }
 
-.content .describe {
-    font-family: Outfit;
+.container .describe {
     font-weight: 400;
-    margin-top: 20px;
     margin-bottom: 40px;
 }
 
-.content .notes {
+.container .notes {
     background-color: var(--rose-50-color);
     padding: 20px 20px 15px;
     border-radius: 10px;
@@ -138,24 +130,21 @@ p {
     -o-border-radius: 10px;
 }
 
-.content .notes h3 {
-    font-family: Outfit;
+.container .notes h3 {
     color: var(--rose-800-color);
     margin: 10px 0;
 }
 
-.content .notes ul {
+.container .notes ul {
     list-style: none;
 }
 
-.content .notes ul li {
-    font-family: Outfit;
+.container .notes ul li {
     position: relative;
     padding-left: 30px;
-    line-height: 2;
 }
 
-.content .notes ul li::before {
+.container .notes ul li::before {
     content: "";
     position: absolute;
     background-color: var(--rose-800-color);
@@ -177,36 +166,36 @@ p {
 }
 
 
-.content .notes ul .title {
-    font-family: Outfit;
+.container .notes ul .title {
     font-weight: 700;
 }
 
-.content .ingredients {
-    border-bottom: 1px solid var(--stone-150-color);
-    padding-bottom: 20px;
+.container .components {
     margin: 20px 0;
 }
 
-.content .ingredients h2 {
+.container .components:not(:last-child) {
+    border-bottom: 1px solid var(--stone-150-color);
+    padding-bottom: 20px;
+}
+
+.container .components h2 {
     font-family: "Young Serif";
     color: var(--brown-800-color);
     font-weight: normal;
     margin-bottom: 10px;
 }
 
-.content .ingredients ul {
+.container .components .ingredients {
     list-style: none;
 }
 
-.content .ingredients ul li {
-    font-family: Outfit;
+.container .components .ingredients li {
     position: relative;
-    line-height: 2;
     padding-left: 30px;
 }
 
-.content .ingredients ul li::before {
+.container .components .ingredients li::before {
     content: "";
     position: absolute;
     background-color: var(--brown-800-color);
@@ -227,33 +216,23 @@ p {
     -o-border-radius: 50%;
 }
 
-.content .instructions {
-    border-bottom: 1px solid var(--stone-150-color);
-    padding-bottom: 20px;
-    margin: 20px 0;
-}
-
-.content .instructions h2 {
-    font-family: "Young Serif";
-    color: var(--brown-800-color);
-    font-weight: normal;
-    margin-bottom: 10px;
-}
-
-.content .instructions ol {
+.container .components .instructions {
     list-style: none;
     counter-reset: item;
 }
 
-.content .instructions ol li {
+.container .components .instructions li {
     counter-increment: item;
     position: relative;
     font-family: Outfit;
-    line-height: 2;
     padding-left: 30px;
 }
 
-.content .instructions ol li::before {
+.container .components .instructions li:not(:last-child) {
+    padding-bottom: 10px;
+}
+
+.container .components .instructions li::before {
     content: counter(item) ".";
     position: absolute;
     left: 5px;
@@ -261,40 +240,23 @@ p {
     font-weight: bold;
 }
 
-.content .instructions ol .title {
+.container .components .instructions .title {
     font-weight: 700;
 }
 
-.content .nutrition {
-    padding-bottom: 20px;
-    margin: 20px 0;
-}
-
-.content .nutrition h2 {
-    font-family: "Young Serif";
-    color: var(--brown-800-color);
-    font-weight: normal;
-    margin-bottom: 10px;
-}
-
-/*
-.content .nutrition .items {
-    display: flex;
-}
-*/
-.content .nutrition .items .item {
+.container .components .items .item {
     display: flex;
     justify-items: center;
     text-align: left;
     justify-content: left;
-    gap: calc(50% - 100px)
+    gap: calc(50% - 100px);
 }
 
-.content .nutrition .items .item:not(:last-child) {
+.container .components .items .item:not(:last-child) {
     border-bottom: 1px solid var(--stone-150-color);
 }
 
-.content .nutrition .items .item p {
+.container .components .items .item p {
     display: block;
     margin: 10px 0px 10px 30px;
     padding: 0;
@@ -302,7 +264,7 @@ p {
     font-weight: 600;
 }
 
-.content .nutrition .items .item span {
+.container .components .items .item span {
     display: block;
     margin: 10px 0;
     padding: 0;
@@ -314,7 +276,6 @@ p {
 .attribution {
     padding: 20px 0;
     text-align: center;
-    background-color: var(--stone-100-color);
 }
 
 .attribution a {
