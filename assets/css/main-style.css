@@ -123,6 +123,7 @@ p {
     color: var(--stone-900-color);
     font-size: 38px;
     letter-spacing: 1px;
+    font-weight: 400;
 }
 
 .container .describe {
