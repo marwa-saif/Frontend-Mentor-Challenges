@@ -61,31 +61,40 @@ p {
 }
 
 .container {
-    width: 50%;
-    margin: 100px auto;
-    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 51%;
+    margin: 120px auto;
+    padding: 38px 38px 32px 38px;
     background-color: var(--white-color);
     overflow: hidden;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 
 .container img {
     width: 100%;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.container .box {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Small */
 
 @media (max-width: 768px) {
     .container {
+
         width: 100%;
         margin: 0 auto;
         padding: 0;
@@ -105,24 +114,42 @@ p {
     }
 
     .container .box {
-        padding: 0 20px;
+        padding: 12px 28px 12px 32px;
     }
 }
 
 .container h1 {
     font-family: "Young Serif";
     color: var(--stone-900-color);
-    margin: 20px 0;
+    font-size: 38px;
+    letter-spacing: 1px;
 }
 
 .container .describe {
     font-weight: 400;
-    margin-bottom: 40px;
+    margin-top: 7px;
+    margin-bottom: 25px;
+    color: var(--stone-600-color);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 35px;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+    }
+
+    .container .describe {
+        margin-top: 22px;
+        margin-bottom: 30px;
+    }
 }
 
 .container .notes {
     background-color: var(--rose-50-color);
-    padding: 20px 20px 15px;
+    padding: 15px 25px 20px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -132,7 +159,8 @@ p {
 
 .container .notes h3 {
     color: var(--rose-800-color);
-    margin: 10px 0;
+    margin: 10px 0 3px;
+    letter-spacing: 0.7px;
 }
 
 .container .notes ul {
@@ -141,7 +169,7 @@ p {
 
 .container .notes ul li {
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
 }
 
 .container .notes ul li::before {
@@ -149,9 +177,9 @@ p {
     position: absolute;
     background-color: var(--rose-800-color);
     display: inline-block;
-    width: 5px;
-    height: 5px;
-    left: 5px;
+    width: 3px;
+    height: 3px;
+    left: 10px;
     top: 50%;
     border-radius: 50%;
     transform: translateY(-50%);
@@ -165,24 +193,44 @@ p {
     -o-border-radius: 50%;
 }
 
-
 .container .notes ul .title {
     font-weight: 700;
 }
 
+@media (max-width: 768px) {
+    .container .notes {
+        padding: 8px 25px 18px 22px;
+    }
+
+    .container .notes h3 {
+        margin: 10px 0 5px;
+    }
+
+    .container .notes ul {
+        list-style: none;
+    }
+
+    .container .notes ul li {
+        line-height: 1.6;
+        margin-bottom: 6px;
+    }
+}
+
 .container .components {
-    margin: 20px 0;
+    margin: 23px 0 0;
 }
 
 .container .components:not(:last-child) {
     border-bottom: 1px solid var(--stone-150-color);
-    padding-bottom: 20px;
+    padding-bottom: 24px;
 }
 
 .container .components h2 {
     font-family: "Young Serif";
     color: var(--brown-800-color);
     font-weight: normal;
+    font-size: 26px;
+    letter-spacing: 1px;
     margin-bottom: 10px;
 }
 
@@ -192,7 +240,7 @@ p {
 
 .container .components .ingredients li {
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
 }
 
 .container .components .ingredients li::before {
@@ -200,9 +248,9 @@ p {
     position: absolute;
     background-color: var(--brown-800-color);
     display: inline-block;
-    width: 5px;
-    height: 5px;
-    left: 5px;
+    width: 3px;
+    height: 3px;
+    left: 8px;
     top: 50%;
     border-radius: 50%;
     transform: translateY(-50%);
@@ -214,6 +262,16 @@ p {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .container .components {
+        margin: 20px 0 0;
+    }
+    .container .components .ingredients li {
+        line-height: 1.9;
+    }
+
 }
 
 .container .components .instructions {
@@ -225,17 +283,19 @@ p {
     counter-increment: item;
     position: relative;
     font-family: Outfit;
-    padding-left: 30px;
+    padding-left: 40px;
+    line-height: 1.5;
+    padding-bottom: 8px;
 }
 
-.container .components .instructions li:not(:last-child) {
-    padding-bottom: 10px;
+.container .components .instructions li:last-child {
+    padding-bottom: 6px;
 }
 
 .container .components .instructions li::before {
     content: counter(item) ".";
     position: absolute;
-    left: 5px;
+    left: 8px;
     color: var(--brown-800-color);
     font-weight: bold;
 }
@@ -244,34 +304,41 @@ p {
     font-weight: 700;
 }
 
+.container .components .nutrition-p {
+    margin-bottom: 14px;
+}
+
+.container .components .items {
+    display: flex;
+    flex-direction: column;
+}
+
 .container .components .items .item {
     display: flex;
-    justify-items: center;
+    justify-content: center;
+    align-items: flex-start;
     text-align: left;
-    justify-content: left;
-    gap: calc(50% - 100px);
+    padding: 10px 15px 0px 30px;
 }
 
 .container .components .items .item:not(:last-child) {
     border-bottom: 1px solid var(--stone-150-color);
+    padding: 10px 15px 5px 30px;
 }
 
 .container .components .items .item p {
     display: block;
-    margin: 10px 0px 10px 30px;
-    padding: 0;
-    width: 100px;
+    flex: 1;
     font-weight: 600;
 }
 
 .container .components .items .item span {
     display: block;
-    margin: 10px 0;
-    padding: 0;
-    width: 100px;
+    flex: 1;
     color: var(--brown-800-color);
     font-weight: 700;
 }
+
 
 .attribution {
     padding: 20px 0;
